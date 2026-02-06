@@ -1,6 +1,6 @@
 {
   "name": "react-animated-text-writer",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "React Animated Text Writer - A flexible typing animation component for React with cursor effects, delays, prefix/suffix injection, and an optional code-editor style wrapper with line numbers and syntax highlighting.",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -18,7 +18,10 @@
     "react-component",
     "ui"
   ],
-  "author": "Abdullah Ibne Alam",
+  "author": {
+    "name": "Abdullah Ibne Alam",
+    "url": "https://abdullahibnealam.com"
+  },
   "license": "ISC",
   "peerDependencies": {
     "react": ">=16.8.0",
