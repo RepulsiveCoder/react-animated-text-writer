@@ -168,8 +168,9 @@ MIT © Your Name
 
 ## Contributing
 
-Pull requests are welcome!
-If you have ideas for enhancements or performance improvements, feel free to open an issue.
+Pull requests are welcome! <br />
+If you have ideas for enhancements or performance improvements, feel free to open an issue.<br />
+[https://github.com/RepulsiveCoder/react-animated-text-writer](https://github.com/RepulsiveCoder/react-animated-text-writer)
 
 ---
 
