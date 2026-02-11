@@ -162,7 +162,7 @@ This gives you full control over themes and editor appearance.
 
 ## License
 
-MIT © Your Name
+MIT © Abdullah Ibne Alam
 
 ---
 
@@ -177,4 +177,3 @@ If you have ideas for enhancements or performance improvements, feel free to ope
 ## If you like it…
 
 Drop a ⭐ on the repo and use it to make your UI feel alive!
-
