@@ -105,12 +105,20 @@ const AnimatedTextWriter = ({
     const elementRef = React.useRef<HTMLDivElement>(null);
     let timerControl:NodeJS.Timeout | undefined;
 
-    const codeWrapperPrefix = displayCodeWrapper ? `<div class="animated-text-writer-code-container ${displayCodeLineNumber ? '' : 'hide-line-number'} ${displayCodeLineNumberMax ? 'n'+displayCodeLineNumberMax : ''} ${codeWrapperWhiteSpace === 'auto' ? (displayCodeLineNumber ? 'nowrap' : '' ) : (codeWrapperWhiteSpace === 'nowrap' ? 'nowrap' : '')} ${codeWrapperClasses}" style="${codeWrapperStyle}">` : '';
-    const codeWrapperSuffix = displayCodeWrapper ? '</div>' : '';
-    const cursorContent = `<span class="animated-text-writer-blinking-cursor" style="color: ${cursorColor}; line-height: ${cursorLineHeight}">𝙸</span>`;
-
+    const codeWrapperPrefix = React.useMemo(() => displayCodeWrapper ? `<div class="animated-text-writer-code-container ${displayCodeLineNumber ? '' : 'hide-line-number'} ${displayCodeLineNumberMax ? 'n'+displayCodeLineNumberMax : ''} ${codeWrapperWhiteSpace === 'auto' ? (displayCodeLineNumber ? 'nowrap' : '' ) : (codeWrapperWhiteSpace === 'nowrap' ? 'nowrap' : '')} ${codeWrapperClasses}" style="${codeWrapperStyle}">` : '', [displayCodeWrapper, displayCodeLineNumber, displayCodeLineNumberMax, codeWrapperWhiteSpace, codeWrapperClasses, codeWrapperStyle]);
+    const codeWrapperSuffix = React.useMemo(() => displayCodeWrapper ? '</div>' : '', [displayCodeWrapper]);
+    const cursorContent = React.useMemo(() => `<span class="animated-text-writer-blinking-cursor" style="color: ${cursorColor}; line-height: ${cursorLineHeight}">𝙸</span>`, [cursorColor, cursorLineHeight]);
 
     React.useEffect(() => {
+        return () => {
+            if (timerControl) {
+                clearTimeout(timerControl);
+            }
+        };
+    }, []);
+
+    React.useEffect(() => {
+        let timer: NodeJS.Timeout;
         const currentMillis = new Date().getTime();
         if (startTime === 0) {
             setCurrentContent(cursorContent);
@@ -119,7 +127,7 @@ const AnimatedTextWriter = ({
 
         if (startTime + startDelay > currentMillis) {
             if (enabled) {
-                setTimeout(() => {
+                timer = setTimeout(() => {
                     setNextIteration(nextIteration+1);
                 }, delay);
             }
@@ -130,12 +138,18 @@ const AnimatedTextWriter = ({
         if (currentIndex < content.length) {
             const increment = getIncrement(content, currentIndex);
 
-            setTimeout(() => {
+            timer = setTimeout(() => {
                 setCurrentIndex(currentIndex + increment);
             }, delay);
         } else {
             setCurrentContent(prefix + codeWrapperPrefix + codePrefix + content + (displayCursorEnd ? cursorContent : '') + codeSuffix + codeWrapperSuffix + suffix);
         }
+
+        return () => {
+            if (timer) {
+                clearTimeout(timer);
+            }
+        };
     }, [
             nextIteration, currentIndex, enabled,
             startTime,
