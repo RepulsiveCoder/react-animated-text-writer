@@ -90,47 +90,37 @@ import AnimatedTextWriter from "react-animated-text-writer";
 
 ## Props
 
-```ts
-interface AnimatedTextWriterProps {
-  content?: string;
-  prefix?: string;
-  suffix?: string;
-  replacablePrefix?: string;
+## AnimatedTextWriter Props
 
-  codePrefix?: string;
-  codeSuffix?: string;
-
-  delay?: number;
-  startDelay?: number;
-
-  displayCursor?: boolean;
-  displayCursorEnd?: boolean;
-
-  displayCodeWrapper?: boolean;
-  displayCodeLineNumber?: boolean;
-  displayCodeLineNumberMax?: number;
-
-  className?: string;
-
-  cursorColor?: string;
-  cursorLineHeight?: string;
-
-  codeWrapperClasses?: string;
-  codeWrapperStyle?: string | React.CSSProperties;
-  codeWrapperWhiteSpace?: "auto" | "nowrap";
-
-  displayClickMoreButtonAndPause?: boolean;
-  displayFullContentOnClickMoreButton?: boolean;
-
-  clickMoreHeaderText?: string;
-  clickMoreHeaderClassString?: string;
-  viewMoreButtonText?: string;
-  viewLessButtonText?: string;
-
-  showContentAuto?: boolean;
-  sx?: React.CSSProperties;
-}
-```
+| Prop | Type | Default | Description |
+|-----|------|---------|-------------|
+| `content` | `string` | `""` | Text content that will be displayed with the typing animation. |
+| `prefix` | `string` | `""` | Text displayed before the animated content. |
+| `suffix` | `string` | `""` | Text displayed after the animated content. |
+| `replacablePrefix` | `string` | `""` | Placeholder text that will be replaced by the animated `content`. |
+| `codePrefix` | `string` | `""` | Optional prefix displayed before code content when using the code wrapper. |
+| `codeSuffix` | `string` | `""` | Optional suffix displayed after code content when using the code wrapper. |
+| `delay` | `number` | `50` | Delay in milliseconds between each typed character. |
+| `startDelay` | `number` | `0` | Delay before the typing animation begins. |
+| `displayCursor` | `boolean` | `true` | Shows a blinking cursor during typing animation. |
+| `displayCursorEnd` | `boolean` | `true` | Keeps the cursor visible after typing finishes. |
+| `displayCodeWrapper` | `boolean` | `false` | Displays the animated text inside a code-editor styled container. |
+| `displayCodeLineNumber` | `boolean` | `false` | Shows line numbers when `displayCodeWrapper` is enabled. |
+| `displayCodeLineNumberMax` | `number` | `undefined` | Maximum number of line numbers to display. |
+| `className` | `string` | `""` | Custom CSS class applied to the main container. |
+| `cursorColor` | `string` | `currentColor` | Color of the blinking cursor. |
+| `cursorLineHeight` | `string` | `"1em"` | Line height for the cursor element. |
+| `codeWrapperClasses` | `string` | `""` | Additional CSS classes for the code wrapper container. |
+| `codeWrapperStyle` | `string \| React.CSSProperties` | `{}` | Inline styles applied to the code wrapper container. |
+| `codeWrapperWhiteSpace` | `"auto" \| "nowrap"` | `"auto"` | Controls white-space behavior inside the code wrapper. |
+| `displayClickMoreButtonAndPause` | `boolean` | `false` | Shows a **View More** button and pauses typing until the user clicks it. |
+| `displayFullContentOnClickMoreButton` | `boolean` | `false` | Displays the entire remaining content when the **View More** button is clicked. |
+| `clickMoreHeaderText` | `string` | `""` | Optional header text shown above the **View More** section. |
+| `clickMoreHeaderClassString` | `string` | `""` | CSS class applied to the **View More** header. |
+| `viewMoreButtonText` | `string` | `"View More"` | Text displayed on the button to expand content. |
+| `viewLessButtonText` | `string` | `"View Less"` | Text displayed on the button to collapse content. |
+| `showContentAuto` | `boolean` | `false` | Automatically expands the full content without user interaction. |
+| `sx` | `React.CSSProperties` | `{}` | Inline styles applied to the root component container. |
 
 ---
 
