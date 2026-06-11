@@ -36,7 +36,7 @@ const getIncrement = (content: string, index: number, fistCall=true) => {
     return increment;
 };
 
-interface AnimatedTextWriterProps {
+export interface AnimatedTextWriterProps {
     content?: string;
     prefix?: string;
     suffix?: string;
