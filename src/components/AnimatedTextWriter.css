@@ -57,6 +57,11 @@ h1.animated-text-title-header {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
   color: #000;
   overflow-y: auto;
+  font-size: 1rem !important;
+  line-height: 20px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  background: none !important;
 }
 
 .animated-text-writer-code-container code.dark {
